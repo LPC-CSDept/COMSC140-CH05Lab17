@@ -2,25 +2,25 @@ import random
 import main
 
 
-def test_greater():
+def test_makeLabmda1():
 
-    assert main.greater(10, 20) == 20, "Invalid greater value"
-    assert main.greater(20, 10) == 20, "Invalid greater value"
-    assert main.greater(100, 20) == 100, "Invalid greater value"
+    numbers1 = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+    add100 = main.makeLambda(100)
+
+    numbers1 = add100(numbers1)
+    print('After lambda function add100 call', numbers1)
+
+    assert numbers1[0] == 110, "Invalid value. Expected 110"
+    assert numbers1[9] == 200, "Invalid value. Expected 200"
 
 
-def test_filter50():
+def test_makeLabmda2():
 
-    numbers = [random.randint(0, 100) for i in range(10)]
-    print('original list', numbers)
-    tlst = [v for v in numbers if v > 50]
-    tnum = len(tlst)
-    rlst = main.filter50(numbers)
-    print('filter 50', rlst)
+    numbers2 = [10, 20, 30, 40, 50]
+    add20 = main.makeLambda(20)
 
-    assert len(rlst) == len(tlst), "Wrong number of elements"
-    flag = 0
-    for i in range(len(rlst)):
-        if rlst[i] == tlst[i]:
-            flag = 1
-    assert flag == 1, "Invalid elements for > 50"
+    numbers2 = add20(numbers2)
+    print('After lambda function add100 call', numbers2)
+
+    assert numbers2[0] == 30, "Invalid value. Expected 30"
+    assert numbers2[4] == 70, "Invalid value. Expected 70"
