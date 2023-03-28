@@ -24,3 +24,13 @@ def test_makeLabmda2():
 
     assert numbers2[0] == 30, "Invalid value. Expected 30"
     assert numbers2[4] == 70, "Invalid value. Expected 70"
+
+def test_yield():
+    with open('main.py') as f:
+        flag = False
+        for line in f:
+            if 'lambda' in line:
+                flag = True
+                break
+
+    assert flag == True
